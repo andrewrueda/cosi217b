@@ -45,7 +45,7 @@ def get_markup_paragraphed(markup):
 
 @app.get('/get')
 def index_get():
-    return render_template('form2.html', input=open('../input.txt').read())
+    return render_template('form2.html', input=open('input.txt').read())
 
 
 @app.post('/post')
