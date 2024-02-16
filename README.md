@@ -64,4 +64,5 @@ To run:
 $ streamlit run app_streamlit.py
 ```
 Select entity view to display entity information and word frequency.
+
 Select dependency view to display a graph dependency structure of the input, as well as a count of dependencies for each head.
