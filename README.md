@@ -1,4 +1,4 @@
-# Assignment 1 starter code
+# Access spaCy with custom APIs
 
 The code assumes Python version 3.8 or higher.
 
@@ -15,11 +15,26 @@ Accessing the API:
 
 ```bash
 $ curl http:/127.0.0.1:8000
-$ curl -X POST http:/127.0.0.1:8000 \
-       -H 'accept: application/json' \
-       -H 'Content-Type: application/json' \
-       -d@input.json 
+
+$ curl  http:/127.0.0.1:8000/ner -H 'accept: application/json' \
+       -d@input.json
+
+$ curl  http:/127.0.0.1:8000/dep -H 'accept: application/json' \
+       -d@input.json
 ```
+
+Make it Pretty:
+
+```bash
+$ curl http:/127.0.0.1:8000?pretty=true
+
+$ curl  http:/127.0.0.1:8000/ner?pretty=true -H 'accept: application/json' \
+       -d@input.json
+
+$ curl  http:/127.0.0.1:8000/dep?pretty=true -H 'accept: application/json' \
+       -d@input.json
+```
+
 
 ### Flask server
 
