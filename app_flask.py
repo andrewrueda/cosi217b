@@ -18,7 +18,7 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        return render_template('form.html', input=open('../input.txt').read())
+        return render_template('form.html', input=open('input.txt').read())
     else:
         text = request.form['text']
 
