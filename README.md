@@ -9,6 +9,7 @@ The code requires Python version 3.9 or higher.
 pip install -r requirements.txt
 ```
 
+
 2. Download spaCy ```en_core_web_sm```:
 
 ```bash
