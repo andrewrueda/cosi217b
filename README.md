@@ -16,11 +16,9 @@ Accessing the API:
 ```bash
 $ curl http:/127.0.0.1:8000
 
-$ curl  http:/127.0.0.1:8000/ner -H 'accept: application/json' \
-       -d@input.json
+$ curl  http:/127.0.0.1:8000/ner -H 'Content-Type: application/json' -d@input.json
 
-$ curl  http:/127.0.0.1:8000/dep -H 'accept: application/json' \
-       -d@input.json
+$ curl  http:/127.0.0.1:8000/dep -H 'Content-Type: application/json' -d@input.json
 ```
 
 Make it Pretty:
@@ -28,11 +26,9 @@ Make it Pretty:
 ```bash
 $ curl http:/127.0.0.1:8000?pretty=true
 
-$ curl  http:/127.0.0.1:8000/ner?pretty=true -H 'accept: application/json' \
-       -d@input.json
+$ curl  http:/127.0.0.1:8000/ner?pretty=true -H 'Content-Type: application/json' -d@input.json
 
-$ curl  http:/127.0.0.1:8000/dep?pretty=true -H 'accept: application/json' \
-       -d@input.json
+$ curl  http:/127.0.0.1:8000/dep?pretty=true -H 'Content-Type: application/json' -d@input.json
 ```
 
 
