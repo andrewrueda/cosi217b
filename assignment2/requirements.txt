@@ -1,5 +1,5 @@
 flask==3.0.1
-fastapi==0.109.0
+fastapi==0.109.1
 pydantic==2.5.3
 streamlit==1.31.1
 duckdb==0.10.0
