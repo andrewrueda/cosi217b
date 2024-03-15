@@ -1,5 +1,5 @@
-flask==2.3.1
-fastapi==0.109.0
+flask==3.0.1
+fastapi==0.109.1
 pydantic==2.5.3
 streamlit==1.31.1
 duckdb==0.10.0
@@ -9,4 +9,3 @@ uvicorn==0.27.0
 pandas==2.2.0
 spacy==3.7.2
 flask_sqlalchemy==3.1.1
-flask_table==0.5.0

@@ -53,19 +53,16 @@ if not os.path.exists('database'):
     os.makedirs('database')
 
 
-with app.app_context():
-    db.create_all()
-
-# try:
-#     with app.app_context():
-#         if not os.path.exists('database/flask_ner.db'):
-#             db.create_all()
-#             print("Database created successfully.")
-#         else:
-#             db.init_app(app)
-#             print("Initialized successfully.")
-# except Exception as e:
-#     print(f"Error accessing database: {e}")
+try:
+    with app.app_context():
+        if not os.path.exists('database/flask_ner.db'):
+            db.create_all()
+            print("Database created successfully.")
+        else:
+            db.init_app(app)
+            print("Initialized successfully.")
+except Exception as e:
+    print(f"Error accessing database: {e}")
 
 
 # For the website we use the regular Flask functionality and serve up HTML pages.
