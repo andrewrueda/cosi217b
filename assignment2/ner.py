@@ -21,7 +21,8 @@ class SpacyDocument:
     def get_entities(self) -> str:
         entities = []
         for e in self.doc.ents:
-            entities.append((e.start_char, e.end_char, e.label_, e.text))
+            entities.append({"start_char": e.start_char, "end_char": e.end_char,
+                             "label": e.label_, "text": e.text})
         return entities
 
     def get_dependencies(self) -> str:
@@ -71,8 +72,5 @@ if __name__ == '__main__':
 
     for entity in doc.get_entities():
         print(entity)
-    print(doc.get_entities_with_markup())
-
-    for dependency in doc.get_tokens():
+    for dependency in doc.get_dependencies():
         print(dependency)
-    print(doc.get_dependencies_with_markup())
