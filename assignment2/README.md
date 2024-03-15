@@ -1,4 +1,4 @@
-# Access spaCy with custom APIs. Includes SQLite DB Backend
+# Access spaCy with custom APIs - Includes SQLite DB Backend
 
 The code requires Python version 3.9 or higher.
 
