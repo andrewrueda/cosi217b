@@ -19,6 +19,7 @@ db = SQLAlchemy(app)
 
 
 class Entry(db.Model):
+    """Row entry for SQLite Table"""
     id = db.Column(db.Integer, primary_key=True)
     entity = db.Column(db.String)
     head = db.Column(db.String)
@@ -39,9 +40,9 @@ class Entry(db.Model):
                 'dependency': self.dependency, 'child': self.child}
 
 
+# Create/Initialize DB
 if not os.path.exists('database'):
     os.makedirs('database')
-
 try:
     with app.app_context():
         if not os.path.exists('database/flask_ner.db'):
@@ -53,8 +54,6 @@ try:
 except Exception as e:
     print(f"Error accessing database: {e}")
 
-
-# For the website we use the regular Flask functionality and serve up HTML pages.
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -75,35 +74,6 @@ def index():
         dep_markup_paragraphed = get_markup_paragraphed(doc.get_dependencies_with_markup())
 
         return render_template('result.html', ner_markup=ner_markup_paragraphed, dep_markup=dep_markup_paragraphed)
-
-
-@app.route('/data', methods=['GET'])
-def get_data():
-    query = db.session.execute(db.select(Entry))
-    items = [item[0].to_dict() for item in query]
-    return render_template('database.html', data=items)
-
-
-def entity_dependency_data(entities, dependencies):
-    data = []
-    for dependency in dependencies:
-        for entity in entities:
-            if entity['start_char'] <= dependency['head_index'] <= entity['end_char']:
-                data.append(Entry(entity, dependency))
-    return data
-
-
-def get_markup_paragraphed(markup):
-    markup_paragraphed = ''
-    for line in markup.split('\n'):
-        if line.strip() == '':
-            markup_paragraphed += '<p/>\n'
-        else:
-            markup_paragraphed += line
-    return markup_paragraphed
-
-
-# alternative where we use two resources
 
 
 @app.get('/get')
@@ -127,6 +97,33 @@ def index_post():
     dep_markup_paragraphed = get_markup_paragraphed(doc.get_dependencies_with_markup())
 
     return render_template('result.html', ner_markup=ner_markup_paragraphed, dep_markup=dep_markup_paragraphed)
+
+
+@app.route('/data', methods=['GET'])
+def get_data():
+    query = db.session.execute(db.select(Entry))
+    items = [item[0].to_dict() for item in query]
+    return render_template('database.html', data=items)
+
+
+def entity_dependency_data(entities, dependencies):
+    """Helper method: returns dependencies associated with named entities."""
+    data = []
+    for dependency in dependencies:
+        for entity in entities:
+            if entity['start_char'] <= dependency['head_index'] <= entity['end_char']:
+                data.append(Entry(entity, dependency))
+    return data
+
+
+def get_markup_paragraphed(markup):
+    markup_paragraphed = ''
+    for line in markup.split('\n'):
+        if line.strip() == '':
+            markup_paragraphed += '<p/>\n'
+        else:
+            markup_paragraphed += line
+    return markup_paragraphed
 
 
 if __name__ == '__main__':
