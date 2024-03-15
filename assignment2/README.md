@@ -28,4 +28,4 @@ $ python app_flask.py
 To access the website point your browser at [http://127.0.0.1:5000](http://127.0.0.1:5000). In `app_flask.py` there are two ways to implement the server, one with a single resource `'/'` and one with two resources: `/get` and `/post`.
 
 Enter text input, and receive both entity and dependency information.
-Dependencies associated with Entities are stored in the database. You may also view this.
+Dependencies associated with Entities are stored in the database. You may also view this at `/data`.
