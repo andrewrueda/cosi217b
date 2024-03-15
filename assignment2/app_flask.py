@@ -5,8 +5,6 @@ To see the pages point your browser at http://127.0.0.1:5000.
 """
 
 from flask import Flask, request, render_template
-from flask_table import Table, Col
-from markupsafe import Markup
 from flask_sqlalchemy import SQLAlchemy
 import os
 
@@ -41,17 +39,8 @@ class Entry(db.Model):
                 'dependency': self.dependency, 'child': self.child}
 
 
-class DataTable(Table):
-    id = Col('id')
-    entity = Col('entity')
-    head = Col('head')
-    dependency = Col('dependency')
-    child = Col('child')
-
-
 if not os.path.exists('database'):
     os.makedirs('database')
-
 
 try:
     with app.app_context():
