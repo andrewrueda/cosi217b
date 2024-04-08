@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7ed8547-9a73-48f3-aeba-b3be6cdca21a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assignment2/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assignment2/input.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assignment2/static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assignment2/templates/database.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assignment2/templates/form.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assignment2/templates/form2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assignment2/templates/result.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assignment2/templates/result2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment2/app_flask.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment2/app_flask.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment2/ner.py" beforeDir="false" afterPath="$PROJECT_DIR$/assignment2/ner.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment2/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/assignment2/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +119,10 @@
       <workItem from="1710032536861" duration="9054000" />
       <workItem from="1710095339299" duration="1994000" />
       <workItem from="1710302274988" duration="15245000" />
+      <workItem from="1710637817048" duration="10000" />
+      <workItem from="1710637857723" duration="8000" />
+      <workItem from="1710637889755" duration="3000" />
+      <workItem from="1710637947680" duration="18000" />
     </task>
     <servers />
   </component>
