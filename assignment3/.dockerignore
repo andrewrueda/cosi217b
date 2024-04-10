@@ -1,0 +1,7 @@
+.git
+.gitignore
+app_fastapi/Dockerfile
+docker-compose*
+README.md
+LICENSE
+.vscode
