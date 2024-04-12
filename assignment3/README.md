@@ -19,6 +19,17 @@ $ docker-compose up
 
 The web apps will point to these addresses:
 
-# FastAPI: http://127.0.0.1:8000
-# Flask: http://127.0.0.1:5000
-# Streamlit: http://127.0.0.1:8501
+FastAPI:
+```
+http://127.0.0.1:8000
+```
+
+Flask:
+```
+http://127.0.0.1:5000
+```
+
+Streamlit:
+```
+http://127.0.0.1:8501
+```
