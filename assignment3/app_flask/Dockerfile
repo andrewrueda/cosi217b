@@ -6,8 +6,10 @@ COPY . /app_flask
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENV port=8090
+RUN python -m spacy download en_core_web_sm
 
-EXPOSE 8090
+ENV port=5000
+
+EXPOSE 5000
 
 CMD ["python", "app_flask.py"]

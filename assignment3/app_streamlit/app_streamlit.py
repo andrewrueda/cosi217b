@@ -6,7 +6,7 @@ import altair as alt
 import duckdb
 import graphviz
 
-import shared_data.ner as ner
+import ner
 
 
 def visualize_ner(doc):

@@ -5,31 +5,22 @@ services:
     build:
       context: ./app_fastapi
       dockerfile: Dockerfile
-    volumes:
-      - shared_data:/shared_data
+    ports:
+      - "8000:8000"
 
   app_flask:
     build:
       context: ./app_flask
       dockerfile: Dockerfile
-    volumes:
-      - shared_data:/shared_data
+    ports:
+      - "5000:5000"
 
   app_streamlit:
     build:
       context: ./app_streamlit
       dockerfile: Dockerfile
-    volumes:
-      - shared_data:/shared_data
-
-#  main:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile_main
-#    depends_on:
-#      - app1
-#      - app2
-#      - app3
+    ports:
+      - "8501:8501"
 
 volumes:
   shared_data:

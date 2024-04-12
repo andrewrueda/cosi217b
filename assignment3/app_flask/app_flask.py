@@ -8,7 +8,7 @@ from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 import os
 
-import shared_data.ner as ner
+import ner
 
 app = Flask(__name__)
 
@@ -55,30 +55,33 @@ except Exception as e:
     print(f"Error accessing database: {e}")
 
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
+@app.route('/', methods=['GET'])
+def main():
     if request.method == 'GET':
-        return render_template('form.html', input=open('../shared_data/input.txt').read())
-    else:
-        text = request.form['text']
+        return render_template('form.html', input=open('input.txt').read())
 
-        doc = ner.SpacyDocument(text)
-        data = entity_dependency_data(doc.get_entities(), doc.get_dependencies())
 
-        with app.app_context():
-            for entry in data:
-                db.session.add(entry)
-                db.session.commit()
+@app.route('/', methods=['POST'])
+def handle_post():
+    text = request.form['text']
 
-        ner_markup_paragraphed = get_markup_paragraphed(doc.get_entities_with_markup())
-        dep_markup_paragraphed = get_markup_paragraphed(doc.get_dependencies_with_markup())
+    doc = ner.SpacyDocument(text)
+    data = entity_dependency_data(doc.get_entities(), doc.get_dependencies())
 
-        return render_template('result.html', ner_markup=ner_markup_paragraphed, dep_markup=dep_markup_paragraphed)
+    with app.app_context():
+        for entry in data:
+            db.session.add(entry)
+            db.session.commit()
+
+    ner_markup_paragraphed = get_markup_paragraphed(doc.get_entities_with_markup())
+    dep_markup_paragraphed = get_markup_paragraphed(doc.get_dependencies_with_markup())
+
+    return render_template('result.html', ner_markup=ner_markup_paragraphed, dep_markup=dep_markup_paragraphed)
 
 
 @app.get('/get')
 def index_get():
-    return render_template('form2.html', input=open('../shared_data/input.txt').read())
+    return render_template('form2.html', input=open('input.txt').read())
 
 
 @app.post('/post')
@@ -127,4 +130,4 @@ def get_markup_paragraphed(markup):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
